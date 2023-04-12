@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReferensiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Dashboard.index');
 });
+Route::get('/editor', function () {
+    return view('Dashboard.Detail.MenuUtama');
+});
 
 Route::get('/login', function () {
     return view('Layout.login');
+});
+
+
+Route::controller(ReferensiController::class)->group(function () {
+    route::get('/referensi','index');
+    route::post('/tambah','SimpanReferensi');
+    route::post('/tambahkategori','SimpanJenisReferensi');
 });

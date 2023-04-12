@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link " href="">
+                                <a class="menu-link " href="/">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
@@ -191,10 +191,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                <span class="menu-link">
+                            <div class="menu-item">
+                                <a class="menu-link " href="/referensi">
                                     <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen009.svg-->
+                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                         <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -204,27 +204,9 @@
                                         <!--end::Svg Icon-->
                                     </span>
                                     <span class="menu-title">Referensi</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <div class="menu-sub menu-sub-accordion menu-active-bg">
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Ruangan</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Kategori Berita</span>
-                                        </a>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
+                           
                         </div>
                         <!--end::Menu-->
                     </div>
