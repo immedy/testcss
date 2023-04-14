@@ -45,6 +45,7 @@ Route::controller(PegawaiController::class)->group(function () {
 
 Route::controller(UserNameController::class)->group(function () {
     route::post('/addusername','index');
+    route::post('/autentikasi','login');
     
 });
 

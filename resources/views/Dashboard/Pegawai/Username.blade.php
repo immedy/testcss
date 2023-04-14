@@ -31,7 +31,11 @@
                                                  placeholder="username" name="pegawai_id" value="{{ $pegawai->id }}"
                                                 required hidden/>
                                             <input type="text" class="form-control form-control-lg form-control-solid"
-                                                id="username" placeholder="username" name="username" 
+                                                id="username" placeholder="Inputkan User Name Anda" name="username" @if(!empty($pegawai->user->username)){
+                                                    value="{{ $pegawai->user->username }}"
+                                                }@else
+                                                
+                                                @endif
                                                 required />
                                         </div>
                                     </div>
@@ -83,6 +87,7 @@
                     </div>
                     <!--end::Card body-->
                 </div>
+                
                 <!--end::Content-->
             </div>
             <!--end::Sign-in Method-->

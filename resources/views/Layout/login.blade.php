@@ -14,7 +14,8 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <!--begin::Form-->
-                <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                <form method="post" action="/autentikasi" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                    @csrf
                     <!--begin::Heading-->
                     <div class="text-center mb-10">
                         <!--begin::Title-->
@@ -32,7 +33,7 @@
                         <label class="form-label fs-6 fw-bolder text-dark">Email</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
+                        <input class="form-control form-control-lg form-control-solid" type="text" name="username" autocomplete="off" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
@@ -44,7 +45,7 @@
                             <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
                             <!--end::Label-->
                             <!--begin::Link-->
-                            <a href="../../demo1/dist/authentication/flows/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+                            <a  class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
                             <!--end::Link-->
                         </div>
                         <!--end::Wrapper-->
@@ -63,20 +64,6 @@
                         </button>
                         <!--end::Submit button-->
                         <!--begin::Separator-->
-                        <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
-                        <!--end::Separator-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>
-                        <!--end::Google link-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a>
-                        <!--end::Google link-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg" class="h-20px me-3" />Continue with Apple</a>
-                        <!--end::Google link-->
                     </div>
                     <!--end::Actions-->
                 </form>
@@ -86,15 +73,6 @@
         </div>
         <!--end::Content-->
         <!--begin::Footer-->
-        <div class="d-flex flex-center flex-column-auto p-10">
-            <!--begin::Links-->
-            <div class="d-flex align-items-center fw-bold fs-6">
-                <a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
-                <a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
-                <a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
-            </div>
-            <!--end::Links-->
-        </div>
         <!--end::Footer-->
     </div>
     <!--end::Authentication - Sign-in-->
