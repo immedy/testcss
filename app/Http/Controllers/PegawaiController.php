@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PegawaiController extends Controller
 {
+    
     public function index()
     {
         return view('Dashboard.Pegawai.pegawai', [

@@ -26,26 +26,24 @@ Route::get('/editor', function () {
     return view('Dashboard.Detail.MenuUtama');
 });
 
-Route::get('/login', function () {
-    return view('Layout.login');
-});
-
-
-Route::controller(ReferensiController::class)->group(function () {
+Route::controller(ReferensiController::class)->middleware('auth')->group(function () {
     route::get('/referensi','index');
     route::post('/tambah','SimpanReferensi');
     route::post('/tambahkategori','SimpanJenisReferensi');
 });
 
-Route::controller(PegawaiController::class)->group(function () {
+Route::controller(PegawaiController::class)->middleware('auth')->group(function () {
     route::get('/pegawai','index');
     route::get('/pegawai/{id}','TampilPegawai');
     route::post('/addpegawai','TambahPegawai');
 });
 
-Route::controller(UserNameController::class)->group(function () {
+Route::controller(UserNameController::class)->middleware('auth')->group(function () {
     route::post('/addusername','index');
     route::post('/autentikasi','login');
+    route::post('/logout','logout');
     
 });
+
+route::get('/login',[UserNameController::class,'HalamanLogin']);
 
