@@ -3,6 +3,7 @@
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ReferensiController;
 use App\Http\Controllers\UserNameController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,24 +27,30 @@ Route::get('/editor', function () {
     return view('Dashboard.Detail.MenuUtama');
 });
 
-Route::controller(ReferensiController::class)->middleware('auth')->group(function () {
+
+
+
+
+
+
+route::post('/autentikasi',[UserNameController::class,'login']);
+route::get('/login',[UserNameController::class,'HalamanLogin'])->name('login');
+
+Route::controller(UserNameController::class)->group(function () {
+    route::post('/addusername','index');
+    route::post('/logout','logout');
+    route::get('/ManajemenPengguna','ManajemenPengguna');
+});
+Route::controller(PegawaiController::class)->group(function () {
+    route::get('/pegawai','index');
+    route::get('/pegawai/{id}/edit','TampilPegawai');
+    route::post('/addpegawai','TambahPegawai');
+
+});
+
+Route::controller(ReferensiController::class)->group(function () {
     route::get('/referensi','index');
     route::post('/tambah','SimpanReferensi');
     route::post('/tambahkategori','SimpanJenisReferensi');
+
 });
-
-Route::controller(PegawaiController::class)->middleware('auth')->group(function () {
-    route::get('/pegawai','index');
-    route::get('/pegawai/{id}','TampilPegawai');
-    route::post('/addpegawai','TambahPegawai');
-});
-
-Route::controller(UserNameController::class)->middleware('auth')->group(function () {
-    route::post('/addusername','index');
-    route::post('/autentikasi','login');
-    route::post('/logout','logout');
-    
-});
-
-route::get('/login',[UserNameController::class,'HalamanLogin']);
-

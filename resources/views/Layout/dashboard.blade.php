@@ -198,7 +198,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="">
+                                        <a class="menu-link" href="/ManajemenPengguna">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -293,6 +293,12 @@
                                             data-kt-menu-placement="bottom-end">
                                             <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="user" />
                                         </div>
+                                        <div>
+                                            |
+                                        </div>
+                                        <div class="cursor-pointer symbol symbol-30px symbol-md-40px">
+                                            
+                                        </div>
                                         <!--begin::Menu-->
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
                                             data-kt-menu="true">
@@ -307,8 +313,8 @@
                                                     <!--end::Avatar-->
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
-                                                        <div class="fw-bolder d-flex align-items-center fs-5">Max
-                                                            Smith
+                                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                                            {{-- {{ auth()->user()->pegawai->nama }} --}}
                                                             <span
                                                                 class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                                         </div>
@@ -318,27 +324,23 @@
                                                     <!--end::Username-->
                                                 </div>
                                             </div>
-                                            <form action="/logout" method="post">
-                                                @csrf
-                                                <div class="menu-item px-5">
-                                                    <button  class="menu-link px-5">Sign Out</button>
-                                                </div>
-                                            </form>
+                                            
                                             <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
-                                                <div class="menu-content px-5">
-                                                    <label
-                                                        class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
-                                                        for="kt_user_menu_dark_mode_toggle">
-                                                        <input class="form-check-input w-30px h-20px" type="checkbox"
-                                                            value="1" name="mode"
-                                                            id="kt_user_menu_dark_mode_toggle"
-                                                            data-kt-url="../../demo1/dist/index.html" />
-                                                        <span class="pulse-ring ms-n1"></span>
-                                                        <span class="form-check-label text-gray-600 fs-7">Dark
-                                                            Mode</span>
-                                                    </label>
-                                                </div>
+                                                <form action="/logout" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-warning" ><span class="indicator-label">
+                                                        <span class="svg-icon svg-icon-2">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                                            </svg>
+                                                        </span>
+                                                        Logout                                               
+                                                    </span>
+                                                </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

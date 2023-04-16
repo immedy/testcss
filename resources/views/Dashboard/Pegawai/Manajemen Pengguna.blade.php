@@ -45,13 +45,13 @@
                                             </th>
                                             <th class="min-w-300px">Nama </th>
                                             <th >username</th>
-                                            <th >Ruangan</th>
+                                            <th >Hak Akses</th>
                                             <th >Status</th>
                                             <th class="d-flex justify-content-end flex-shrink-0">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       @foreach ( $pegawai as $p)
+                                       @foreach ( $users as $p)
                                        <tr>
                                         <td>
                                             {{ $loop->iteration }} 
@@ -59,21 +59,23 @@
                                         <td>
                                             <div class="d-flex align-items-center">                                                    
                                                 <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->nama }}</a>                                                    
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->pegawai->nama }}</a>                                                    
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">                                                    
                                                 <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"></a>                                                    
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->username }}</a>                                                    
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">                                                    
                                                 <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->ruangan }}</a>                                                    
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"> @if(!empty($p->hakakses->hakakses)) 
+                                                        {{ $p->hakakses->hakakses}}"
+                                                    @endif</a>                                                    
                                                 </div>
                                             </div>
                                         </td>
@@ -144,43 +146,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade " tabindex="-1" id="modaldetailreferensi">
-        <div class="modal-dialog border border-danger">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Pegawai</h5>
-                </div>
-                <form action="/addpegawai"  method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="fv-row mb-3">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Nama Pegawai</label>
-                            <input type="text" name="nama" class="form-control form-control-solid mb-3 mb-lg-0"
-                                placeholder="" value="" required/>
-                            <!--end::Input-->
-                        </div>
-                        <div class="fv-row ">
-                            <label class="text-dark fw-bolder text-hover-primary fs-6">Ruangan</label>
-                            <select name="ruangan" class="form-select form-select-solid" data-dropdown-parent="#modaldetailreferensi" data-control="select2" data-placeholder="Pilih Jenis Referensi" required>
-                                <option></option>
-                                @foreach ($referensi as $p)
-                                <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>    
-                                @endforeach                                
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
-                        <button type="submit"  class="btn btn-primary"><span class="indicator-label">
-                            Simpan
-                        </span>
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

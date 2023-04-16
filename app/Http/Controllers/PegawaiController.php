@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\hakakses;
 use App\Models\pegawai;
 use App\Models\subreferensi;
 use App\Models\User;
@@ -35,6 +36,7 @@ class PegawaiController extends Controller
     {
         return view ('Dashboard.Pegawai.Username',[
             'pegawai' => pegawai::findOrfail($id),
+            'hakakses' => hakakses::all()
         ]);
     }
 

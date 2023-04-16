@@ -9,7 +9,7 @@
                 <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
                     data-bs-target="#kt_account_signin_method">
                     <div class="card-title m-0">
-                        <h3 class="fw-bolder m-0">{{ $pegawai->nama }} </h3>
+                        <h3 class="fw-bolder m-0">{{ $pegawai->nama }}  </h3>
                     </div>
                 </div>
                 <!--end::Card header-->
@@ -20,7 +20,7 @@
                         <div>
                             <!--begin::Form-->
                             <form id="kt_signin_change_email" action="/addusername" method="post" class="form"
-                                novalidate="novalidate">
+                                onsubmit="return validatePassword()" novalidate="novalidate">
                                 @csrf
                                 <div class="row mb-6">
                                     <div class="col-lg mb-4 mb-lg-0">
@@ -28,13 +28,14 @@
                                             <label for="emailaddress" class="form-label fs-6 fw-bolder mb-3">Input
                                                 Username</label>
                                             <input type="text" class="form-control form-control-lg form-control-solid"
-                                                 placeholder="username" name="pegawai_id" value="{{ $pegawai->id }}"
-                                                required hidden/>
+                                                placeholder="username" name="pegawai_id" value="{{ $pegawai->id }}"
+                                                required hidden />
                                             <input type="text" class="form-control form-control-lg form-control-solid"
-                                                id="username" placeholder="Inputkan User Name Anda" name="username" @if(!empty($pegawai->user->username)){
+                                                id="username"  name="username"
+                                                @if (!empty($pegawai->user->username)) {
                                                     value="{{ $pegawai->user->username }}"
-                                                }@else
-                                                
+                                                @else}
+                                                placeholder="Inputkan User Name Anda"
                                                 @endif
                                                 required />
                                         </div>
@@ -47,19 +48,20 @@
                                                 name="password" id="password" required />
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <div class="fv-row mb-0">
-                                            <label for="confirmemailpassword" class="form-label fs-6 fw-bolder mb-3">
-                                                Confirm Password</label>
-                                            <input type="password" class="form-control form-control-lg form-control-solid"
-                                                id="confirm_password" />
-                                        </div>
+                                    <div class="fv-row ">
+                                        <label class="text-dark fw-bolder text-hover-primary fs-6">Referensi</label>
+                                        <select name="akses[]" id="akses" class="form-select form-select-solid"
+                                            data-control="select2" data-placeholder="Pilih Hak Akses"
+                                            data-allow-clear="true" multiple="multiple">
+                                            <option></option>
+                                            @foreach ($hakakses as $p)
+                                            <option value="{{ $p->id }}">{{ $p->hakakses }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="/pegawai" class="btn btn-danger" > <span
-                                            class="svg-icon svg-icon-2">
+                                    <a href="/pegawai" class="btn btn-danger"> <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd"
@@ -87,10 +89,11 @@
                     </div>
                     <!--end::Card body-->
                 </div>
-                
+
                 <!--end::Content-->
             </div>
             <!--end::Sign-in Method-->
         </div>
     </div>
 @endsection
+

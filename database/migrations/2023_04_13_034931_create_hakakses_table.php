@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('hakakses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->string('role');
+            $table->string('hakakses');            
             $table->boolean('status');
             $table->timestamps();
         });

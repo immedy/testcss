@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(pegawai::class,'id','pegawai_id');
     }
+
+    public function hakakses():BelongsTo
+    {
+        return $this->belongsTo(hakakses::class,'id','hakakses');
+    }
 }
