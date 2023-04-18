@@ -167,6 +167,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (Auth()->user()->akses != 1)
+                            @else
                             <div class="menu-item">
                                 <div class="menu-content pt-8 pb-0">
                                     <span class="menu-section text-muted text-uppercase fs-8 ls-1">Pegawai</span>
@@ -225,7 +227,7 @@
                                     <span class="menu-title">Referensi</span>
                                 </a>
                             </div>
-
+                            @endif
                         </div>
                         <!--end::Menu-->
                     </div>
@@ -293,9 +295,7 @@
                                             data-kt-menu-placement="bottom-end">
                                             <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="user" />
                                         </div>
-                                        <div>
-                                            |
-                                        </div>
+                                        
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px">
                                             
                                         </div>
@@ -314,12 +314,24 @@
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
                                                         <div class="fw-bolder d-flex align-items-center fs-5">
-                                                            {{-- {{ auth()->user()->pegawai->nama }} --}}
-                                                            <span
-                                                                class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+                                                            {{ auth()->user()->pegawai->nama }}
+                                                            <span>                                                                
                                                         </div>
-                                                        <a href="#"
-                                                            class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                                        
+                                                        <form action="/logout" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning" ><span class="indicator-label">
+                                                                <span class="svg-icon svg-icon-2">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                        fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                                                    </svg>
+                                                                </span>
+                                                                Logout                                               
+                                                            </span>
+                                                        </button>
+                                                        </form>
                                                     </div>
                                                     <!--end::Username-->
                                                 </div>
@@ -327,20 +339,7 @@
                                             
                                             <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
-                                                <form action="/logout" method="post">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-warning" ><span class="indicator-label">
-                                                        <span class="svg-icon svg-icon-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
-                                                            </svg>
-                                                        </span>
-                                                        Logout                                               
-                                                    </span>
-                                                </button>
-                                                </form>
+                                                
                                             </div>
                                         </div>
                                     </div>

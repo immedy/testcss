@@ -14,4 +14,8 @@ class pegawai extends Model
     {
         return $this->hasOne(User::class,'pegawai_id','id');
     }
+    public function subreferensi():HasOne
+    {
+        return $this->hasOne(subreferensi::class,'id','ruangan');
+    }
 }

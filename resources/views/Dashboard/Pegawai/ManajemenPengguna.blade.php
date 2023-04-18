@@ -10,25 +10,8 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bolder fs-3 mb-1">Referensi</span>
+                                <span class="card-label fw-bolder fs-3 mb-1">Manajemen Pengguna</span>
                             </h3>
-                            <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-trigger="hover" title="Tambah Referensi">
-                                <a href="#" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modaldetailreferensi">
-                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                                    <span class="svg-icon svg-icon-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                                rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->Tambah
-                                </a>
-                            </div>
                         </div>
                         <!--end::Header-->
                         <!--begin::Body-->
@@ -93,8 +76,9 @@
                                         
                                         <td>
                                             <div class="d-flex justify-content-end flex-shrink-0">                                                
-                                                <a href="/pegawai/{{ $p->id }}/edit"
-                                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="tooltip" data-bs-placement="Top" title="Username">
+                                                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" 
+                                                    data-bs-placement="Top" title="Ganti Username"  data-bs-toggle="modal"
+                                                    data-bs-target="#modaldetailusername">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                     <span class="svg-icon svg-icon-3">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -149,5 +133,44 @@
             </div>
         </div>
     </div>
+{{-- modal --}}
+<div class="modal fade " tabindex="-1" id="modaldetailusername">
+    <div class="modal-dialog border border-danger">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pegawai</h5>
+            </div>
+            <form action="/addpegawai"  method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="fv-row mb-3">
+                        <label class="text-dark fw-bolder text-hover-primary fs-6">Nama Pegawai</label>
+                        <input type="text" name="nama" class="form-control form-control-solid mb-3 mb-lg-0"
+                            placeholder="" value="" required/>
+                        <!--end::Input-->
+                    </div>
+                    <div class="fv-row ">
+                        <label class="text-dark fw-bolder text-hover-primary fs-6">Ruangan</label>
+                        <select name="ruangan" class="form-select form-select-solid" data-dropdown-parent="#modaldetailreferensi" data-control="select2" data-placeholder="Pilih Jenis Referensi" required>
+                            <option></option>
+                            
+                            <option value=""></option>    
+                                                          
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                    <button type="submit"  class="btn btn-primary"><span class="indicator-label">
+                        Simpan
+                    </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @endsection
 

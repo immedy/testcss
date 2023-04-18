@@ -13,6 +13,8 @@
                             <h3 class="card-title fw-bolder text-dark">Jenis Referensi</h3>
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
+                                @if ( Auth::user()->akses !=1)
+                                @else
                                 <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
                                     data-kt-menu-placement="bottom-end" data-bs-toggle="modal"
                                     data-bs-target="#modalreferensi">
@@ -26,6 +28,7 @@
                                         </svg>
                                     </span>
                                 </button>
+                                @endif
                             </div>
                         </div>
                         <!--end::Header-->
@@ -58,6 +61,8 @@
                             </h3>
                             <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-trigger="hover" title="Tambah Referensi">
+                                @if ( Auth::user()->akses !=1)
+                                @else
                                 <a href="#" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal"
                                     data-bs-target="#modaldetailreferensi">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -72,6 +77,7 @@
                                     </span>
                                     <!--end::Svg Icon-->Tambah
                                 </a>
+                                @endif
                             </div>
                         </div>
                         <!--end::Header-->

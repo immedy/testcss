@@ -44,7 +44,6 @@
                                                 No
                                             </th>
                                             <th class="min-w-300px">Nama </th>
-                                            <th >username</th>
                                             <th >Ruangan</th>
                                             <th >Status</th>
                                             <th class="d-flex justify-content-end flex-shrink-0">Actions</th>
@@ -66,14 +65,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">                                                    
                                                 <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"></a>                                                    
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">                                                    
-                                                <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->ruangan }}</a>                                                    
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->subreferensi->deskripsi }}</a>                                                    
                                                 </div>
                                             </div>
                                         </td>

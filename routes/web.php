@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('Dashboard.index');
-});
+})->middleware(['auth']);
 Route::get('/landing', function () {
     return view('Layout.landingpage');
 });
@@ -27,30 +27,25 @@ Route::get('/editor', function () {
     return view('Dashboard.Detail.MenuUtama');
 });
 
-
-
-
-
-
-
 route::post('/autentikasi',[UserNameController::class,'login']);
-route::get('/login',[UserNameController::class,'HalamanLogin'])->name('login');
+route::get('/login',[UserNameController::class,'HalamanLogin'])->name('login')->middleware('guest');
 
 Route::controller(UserNameController::class)->group(function () {
-    route::post('/addusername','index');
-    route::post('/logout','logout');
-    route::get('/ManajemenPengguna','ManajemenPengguna');
+    route::post('/addusername','index')->middleware('auth','admin');
+    route::post('/logout','logout')->middleware('auth');
+    route::get('/ManajemenPengguna','ManajemenPengguna')->middleware('auth','admin');
+    route::get('/ManajemenPengguna/{id}','CariUsername')->middleware('auth','admin');
 });
 Route::controller(PegawaiController::class)->group(function () {
-    route::get('/pegawai','index');
-    route::get('/pegawai/{id}/edit','TampilPegawai');
-    route::post('/addpegawai','TambahPegawai');
+    route::get('/pegawai','index')->middleware('auth','admin');
+    route::get('/pegawai/{id}/edit','TampilPegawai')->middleware('auth','admin');
+    route::post('/addpegawai','TambahPegawai')->middleware('auth','admin');
 
 });
 
 Route::controller(ReferensiController::class)->group(function () {
-    route::get('/referensi','index');
-    route::post('/tambah','SimpanReferensi');
-    route::post('/tambahkategori','SimpanJenisReferensi');
+    route::get('/referensi','index')->middleware('auth','admin');
+    route::post('/tambah','SimpanReferensi')->middleware('auth','admin');
+    route::post('/tambahkategori','SimpanJenisReferensi')->middleware('auth','admin');
 
 });
