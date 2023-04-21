@@ -2,9 +2,9 @@
 @section('DashboardLayout')
     <div class="app-main flex-column flex-row-fluid">
         <!--begin::Container-->
-        <div id="kt_content_container" class="container-fluid">
+        <div id="kt_content_container" class="container-xl">
             <!--begin::Sign-in Method-->
-            <div class="card mb-5 mb-xl-10">
+            <div class="card mb-5 mb-xl-6">
                 <!--begin::Card header-->
                 <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
                     data-bs-target="#kt_account_signin_method">
