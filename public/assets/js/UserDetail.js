@@ -4,7 +4,8 @@ $(document).ready(function() {
         $.get(userURL, function(data) {
             $('#userShowModal').modal('show');
             $('#user-nama').text(data.pegawai_id);
-            $('#user-id').val(data.username);
+            $('#user-id').val(data.id);
+            $('#user-username').val(data.username);
             $('#user-password').val(data.password);
             
         })

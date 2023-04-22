@@ -76,4 +76,8 @@ class UserNameController extends Controller
        $Username = user::find($id);
        return response()->json($Username);
     }
+    public function EditUsername(Request $request)
+    {
+        dd($request);
+    }
 }

@@ -21,6 +21,7 @@
                             <!--begin::Form-->
                             <form id="kt_signin_change_email" action="/addusername" method="post" class="form"
                                 onsubmit="return validatePassword()" novalidate="novalidate">
+                               
                                 @csrf
                                 <div class="row mb-6">
                                     <div class="col-lg mb-4 mb-lg-0">

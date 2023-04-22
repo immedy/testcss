@@ -157,7 +157,9 @@
     <div class="modal fade " tabindex="-1" id="userShowModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="" method="">
+                <form action="/ManajemenPengguna/edit" method="post">
+                    @method('PUT');
+                    @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="user-nama"></h5>
                         <!--begin::Close-->
@@ -171,19 +173,22 @@
                     <div class="modal-body">
                         <div class="fv-row mb-3">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">User Name</label>
-                            <input type="text" name="" class="form-control form-control-solid mb-3 mb-lg-0"
-                                placeholder="" id="user-id" />
+                            <input type="text" name="username" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="" id="user-username" />
+                                <input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="" id="user-id" hidden/>
+                                
                         </div>
                         <div class="fv-row mb-3">
                             <label class="text-dark fw-bolder text-hover-primary fs-6">Password</label>
-                            <input type="password" name="" class="form-control form-control-solid mb-3 mb-lg-0"
+                            <input type="password" name="password" class="form-control form-control-solid mb-3 mb-lg-0"
                                 placeholder="" id="user-password" />
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
-                        <button type="button" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
