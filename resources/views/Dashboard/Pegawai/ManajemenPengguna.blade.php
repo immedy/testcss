@@ -2,7 +2,7 @@
 @section('DashboardLayout')
     <div class="app-main flex-column flex-row-fluid">
         <!--begin::Container-->
-        <div id="kt_content_container" class="container-fluid">
+        <div id="user-table" class="container-fluid">
             <div class="row">
                 <div class="col-xl">
                     <!--begin::Tables Widget 9-->
@@ -19,7 +19,7 @@
                             <!--begin::Table container-->
                             <div class="table-responsive">
                                 <!--begin::Table-->
-                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4" id="tabel-user">
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fw-bolder text-muted">
@@ -73,7 +73,7 @@
                                                             <input class="form-check-input" type="checkbox" value=""
                                                                 id="flexSwitchChecked" checked="checked" />
                                                         </div>
-                                                    @else                                                     
+                                                    @else
                                                         <div
                                                             class="form-check form-switch form-check-custom form-check-solid">
                                                             <input class="form-check-input" type="checkbox" value=""
@@ -84,9 +84,10 @@
 
                                                 <td>
                                                     <div class="d-flex justify-content-end flex-shrink-0">
-                                                        <a href="/ManajemenPengguna/{{ $p->id }}"
-                                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                                                            data-bs-placement="Top" title="Ganti Username" >
+                                                        <a href="javascript:void(0)" id="user"
+                                                            data-url="{{ route('DetailIdUsername', $p->id) }}"
+                                                            class="action btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 "
+                                                            data-bs-placement="Top" title="Ganti Username">
                                                             <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                             <span class="svg-icon svg-icon-3">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -152,6 +153,41 @@
             </div>
         </div>
     </div>
-    
+    {{-- modal --}}
+    <div class="modal fade " tabindex="-1" id="userShowModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="user-nama"></h5>
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <span class="svg-icon svg-icon-2x"></span>
+                        </div>
+                        <!--end::Close-->
+                    </div>
 
+                    <div class="modal-body">
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">User Name</label>
+                            <input type="text" name="" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="" id="user-id" />
+                        </div>
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Password</label>
+                            <input type="password" name="" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="" id="user-password" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
 @endsection

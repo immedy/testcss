@@ -73,9 +73,7 @@ class UserNameController extends Controller
     }
     public function CariUsername($id)
     {
-        return view('Dashboard.Pegawai.DetailManajemenPengguna',[
-            'user'  => User::findOrfail($id)
-        ]);
-        
+       $Username = user::find($id);
+       return response()->json($Username);
     }
 }
