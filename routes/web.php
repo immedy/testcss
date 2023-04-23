@@ -48,5 +48,6 @@ Route::controller(ReferensiController::class)->group(function () {
     route::get('/referensi','index')->middleware('auth','admin');
     route::post('/tambah','SimpanReferensi')->middleware('auth','admin');
     route::post('/tambahkategori','SimpanJenisReferensi')->middleware('auth','admin');
+    route::get('/password','password');
 
 });

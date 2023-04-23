@@ -43,4 +43,8 @@ class ReferensiController extends Controller
         return back();
         
     }
+    public function password()
+    {
+        return view('Dashboard.Detail.passowrd');
+    }
 }

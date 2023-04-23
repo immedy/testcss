@@ -39,5 +39,6 @@ class PegawaiController extends Controller
             'hakakses' => hakakses::all()
         ]);
     }
+    
 
 }
