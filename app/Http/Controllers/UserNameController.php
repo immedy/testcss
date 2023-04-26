@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Events\Validated;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Validation\ValidationException;
 
 class UserNameController extends Controller
 {
@@ -15,22 +13,20 @@ class UserNameController extends Controller
     {
         return view('Layout.login');
     }
-    public function index(Request $request,)
+    public function index(Request $request)
     {
-        $Username = $request->validate([
-            'pegawai_id' => 'required|unique:users,pegawai_id',
-            'username' => 'required',
-            'password' => 'required',
+        $id = $request->id;
+        $ValidasiData = $request->validate([
+            'pegawai_id' => 'required',
+            'username'  => 'required',
+            'password' => 'required'
         ]);
-
-        $Username['password'] = bcrypt($Username['password']);
-        $Username['status'] = 1;
-        User::updateOrInsert(['username' => $Username['username']], $Username);
-        if ($Username) {
+        $ValidasiData['password']= bcrypt($ValidasiData['password']);
+        User::updateOrInsert(['id'=> $id, 'status' => 1], $ValidasiData);
+        if ($ValidasiData){
             Alert::success('username Berhasil Dibuat');
-            return redirect()->intended('/ManajemenPengguna');
+            return redirect()->back();
         }
-        Alert::error('Terjadi Kesalahan');
         return redirect()->back();
     }
 
@@ -75,9 +71,5 @@ class UserNameController extends Controller
     {
        $Username = user::find($id);
        return response()->json($Username);
-    }
-    public function EditUsername(Request $request)
-    {
-        dd($request);
     }
 }

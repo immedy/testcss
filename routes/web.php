@@ -31,7 +31,7 @@ route::post('/autentikasi',[UserNameController::class,'login']);
 route::get('/login',[UserNameController::class,'HalamanLogin'])->name('login')->middleware('guest');
 
 Route::controller(UserNameController::class)->group(function () {
-    route::post('/addusername','index')->middleware('auth','admin');
+    route::put('/addusername/{id}','index')->middleware('auth','admin');
     route::post('/logout','logout')->middleware('auth');
     route::get('/ManajemenPengguna','ManajemenPengguna')->middleware('auth','admin');
     route::get('/ManajemenPengguna/{id}','CariUsername')->middleware('auth','admin')->name('DetailIdUsername');
@@ -40,7 +40,7 @@ Route::controller(UserNameController::class)->group(function () {
 Route::controller(PegawaiController::class)->group(function () {
     route::get('/pegawai','index')->middleware('auth','admin');
     route::get('/pegawai/{id}/edit','TampilPegawai')->middleware('auth','admin');
-    route::post('/addpegawai','TambahPegawai')->middleware('auth','admin');
+    route::post('/addpegawai','TambahPegawai')->middleware('auth','admin')->name('addpegawai');
 
 });
 

@@ -44,6 +44,7 @@
                                                 No
                                             </th>
                                             <th class="min-w-300px">Nama </th>
+                                            <th >Username</th>
                                             <th >Ruangan</th>
                                             <th >Status</th>
                                             <th class="d-flex justify-content-end flex-shrink-0">Actions</th>
@@ -59,6 +60,15 @@
                                             <div class="d-flex align-items-center">                                                    
                                                 <div class="d-flex justify-content-start flex-column">
                                                     <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->nama }}</a>                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">                                                    
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    @if (!empty($p->user->username))
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->user->username }}    </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>

@@ -150,6 +150,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -157,7 +158,7 @@
     <div class="modal fade " tabindex="-1" id="userShowModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="/ManajemenPengguna/edit" method="post">
+                <form action="/addusername/" method="post">
                     @method('PUT');
                     @csrf
                     <div class="modal-header">
