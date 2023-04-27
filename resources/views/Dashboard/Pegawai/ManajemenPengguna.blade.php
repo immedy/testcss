@@ -158,11 +158,11 @@
     <div class="modal fade " tabindex="-1" id="userShowModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="/addusername/" method="post">
+                <form action="{{ route('EditUsername') }}" method="post">
                     @method('PUT');
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="user-nama"></h5>
+                        <h5 class="modal-title" ></h5>
                         <!--begin::Close-->
                         <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                             aria-label="Close">
@@ -176,8 +176,9 @@
                             <label class="text-dark fw-bolder text-hover-primary fs-6">User Name</label>
                             <input type="text" name="username" class="form-control form-control-solid mb-3 mb-lg-0"
                                 placeholder="" id="user-username" />
-                                <input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0"
-                                placeholder="" id="user-id" hidden/>
+                                <input type="text" name="id" id="user-id" hidden/>
+                                <input type="text" name="pegawai_id" id="user-pegawai" hidden/>
+                                
                                 
                         </div>
                         <div class="fv-row mb-3">

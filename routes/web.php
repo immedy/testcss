@@ -35,7 +35,7 @@ Route::controller(UserNameController::class)->group(function () {
     route::post('/logout','logout')->middleware('auth');
     route::get('/ManajemenPengguna','ManajemenPengguna')->middleware('auth','admin');
     route::get('/ManajemenPengguna/{id}','CariUsername')->middleware('auth','admin')->name('DetailIdUsername');
-    route::put('/ManajemenPengguna/edit','EditUsername')->middleware('auth','admin');
+    route::put('/ManajemenPengguna','EditUsername')->middleware('auth','admin')->name('EditUsername');
 });
 Route::controller(PegawaiController::class)->group(function () {
     route::get('/pegawai','index')->middleware('auth','admin');

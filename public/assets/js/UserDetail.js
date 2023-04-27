@@ -3,7 +3,7 @@ $(document).ready(function() {
         var userURL = $(this).data('url');
         $.get(userURL, function(data) {
             $('#userShowModal').modal('show');
-            $('#user-nama').text(data.pegawai_id);
+            $('#user-pegawai').val(data.pegawai_id);
             $('#user-id').val(data.id);
             $('#user-username').val(data.username);
             $('#user-password').val(data.password);

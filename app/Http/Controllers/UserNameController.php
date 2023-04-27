@@ -47,7 +47,7 @@ class UserNameController extends Controller
                 auth()->logout();
             }
         }
-        Alert::Toast('Username Dan Password Telah Dimusnahkan', 'error');
+        Alert::error('Username Dan Password Telah Dimusnahkan');
         return back();
     }
     public function logout(Request $request)
@@ -71,5 +71,18 @@ class UserNameController extends Controller
     {
        $Username = user::find($id);
        return response()->json($Username);
+    }
+
+    public function EditUsername(Request $request)
+    {
+        $id = $request->id;
+        $ValidasiData = $request->validate([
+            'pegawai_id' => 'required',
+            'username'  => 'required',
+            'password' => 'required'
+        ]);
+        $ValidasiData['password']= bcrypt($ValidasiData['password']);
+        User::updateOrInsert(['id'=> $id, 'status' => 1], $ValidasiData);
+        return back();
     }
 }
