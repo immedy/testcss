@@ -5,7 +5,7 @@
         <div id="kt_content_container" class="container-xl">
             <!--begin::Sign-in Method-->
             <div class="row">
-                <div class="col-6">
+                <div class="col-7">
                     <div class="card mb-5 mb-xl-6">
                         <!--begin::Card header-->
                         <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
@@ -22,7 +22,7 @@
                                 <div>
                                     <!--begin::Form-->
                                     <form action="/addusername/{{ $pegawai->id }}" method="post" class="form"
-                                        onsubmit="return validatePassword()" novalidate="novalidate">
+                                        onsubmit="return validatePassword()" novalidate="novalidate" id="validasi_password">
                                         @method('PUT')
                                         @csrf
                                         <div class="row mb-6">
@@ -52,6 +52,16 @@
                                                     <input type="password"
                                                         class="form-control form-control-lg form-control-solid"
                                                         name="password" id="password" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg">
+                                                <div class="fv-row mb-0">
+                                                    <label for="confirmemailpassword"
+                                                        class="form-label fs-6 fw-bolder mb-3">
+                                                        Konfirmasi Password</label>
+                                                    <input type="password"
+                                                        class="form-control form-control-lg form-control-solid"
+                                                        id="confirmation" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -86,13 +96,20 @@
                             </div>
                             <!--end::Card body-->
                         </div>
-
                         <!--end::Content-->
                     </div>
                 </div>
-                
             </div>
-            <!--end::Sign-in Method-->
         </div>
     </div>
+    <script>
+        document.getElementById("validasi_password").addEventListener("submit", function(event) {
+            var password = document.getElementById("password").value;
+            var password_confirmation = document.getElementById("confirmation").value;
+            if (password !== password_confirmation) {
+                alert("Password tidak sama");
+                event.preventDefault();
+            }
+        });
+    </script>
 @endsection
